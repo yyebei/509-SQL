@@ -1,4 +1,3 @@
-create table `final-509.musa_vegas_BQ.staging_crimeclean_01` as (
 with staging_crimeclean01 as(
 select *,
 case when `LONG`='None' then null else `LONG` end as clean_long,
@@ -20,4 +19,3 @@ FROM staging_crimeclean02
     Select *
     except (`LAT`,`Type`,`LONG`,clean_long,clean_lat,geometry,the_geom,`Beat`,`Disposition`,`Map_X`,`Map_Y`,`New_Y`,`WARD`)
     FROM staging_crimeclean03
-);
